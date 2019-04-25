@@ -20,6 +20,6 @@ capacity INT2
 
 CREATE TABLE bookings(
 id SERIAL8 PRIMARY KEY,
-member_id INT8 REFERENCES members(id) ON CASCADE DELETE,
-class_id INT8 REFERENCES classes(id) ON CASCADE DELETE,
+member_id INT8 REFERENCES members(id) ON DELETE CASCADE,
+class_id INT8 REFERENCES classes(id) ON DELETE CASCADE
 );
