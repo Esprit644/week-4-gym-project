@@ -37,4 +37,13 @@ class Booking
     # p list
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM bookings where id = $1"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    list = result.map{|each|Booking.new(each)}
+    p list
+
+  end
+
 end

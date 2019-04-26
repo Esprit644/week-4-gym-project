@@ -44,3 +44,4 @@ booking3.save()
 booking4.save()
 
 Booking.show()
+Booking.find(booking4.id)
