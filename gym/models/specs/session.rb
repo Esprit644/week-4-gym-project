@@ -13,3 +13,5 @@ class Session
     @cost = options.['cost'].to_i
     @session_time = options.['session_time'].to_i
   end
+
+end
