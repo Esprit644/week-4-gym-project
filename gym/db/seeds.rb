@@ -30,10 +30,15 @@ session2.save()
 session3.save()
 Session.show()
 Session.find(session2.id)
-session3.delete_session()
-#
-# booking1 = Booking.new({'member_id' => member1.id, 'session_id' => session1.id})
-# booking2 = Booking.new({'member_id' => member2.id, 'session_id' => session1.id})
-#
-# booking3 = Booking.new({'member_id' => member3.id, 'session_id' => session2.id)}
-# booking4 = Booking.new({'member_id' => member4.id, 'session_id' => session3.id})
+# session3.delete_session()
+
+booking1 = Booking.new({'member_id' => member1.id, 'session_id' => session1.id})
+booking2 = Booking.new({'member_id' => member2.id, 'session_id' => session1.id})
+
+booking3 = Booking.new({'member_id' => member3.id, 'session_id' => session2.id})
+booking4 = Booking.new({'member_id' => member4.id, 'session_id' => session3.id})
+
+booking1.save()
+booking2.save()
+booking3.save()
+booking4.save()
