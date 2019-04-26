@@ -3,6 +3,7 @@ require_relative('../models/member.rb')
 require_relative('../models/session.rb')
 
 Member.delete_all()
+Session.delete_all()
 
 member1 = Member.new({'first_name' => 'John', 'last_name' => 'Brown', 'email' => 'j@hotmail', 'phone_number' => '01311111'})
 member2 = Member.new({'first_name' => 'Peter','last_name' => 'Smith', 'email' => 'p@hotmail', 'phone_number' => '01312222' })
@@ -18,11 +19,18 @@ member4.save()
 Member.find_all()
 Member.find(member2.id)
 
-member2.delete()
-#
-# session1 = Session.new({'session_name' => 'yoga', 'capacity' => '10', 'cost' => '5', 'time' => '1700'})
-# session2 = Session.new({'session_name' => 'pilates', 'capacity' => '20', 'cost' => '6', 'time' =>'1800'})
-# session3 = Session.new({'session_name' => 'circuits', 'capacity' => '30', 'cost' => '7', 'time' => '1900'})
+# member2.delete()
+
+session1 = Session.new({'session_name' => 'yoga', 'capacity' => '10', 'cost' => '5', 'session_time' => '1700'})
+session2 = Session.new({'session_name' => 'pilates', 'capacity' => '20', 'cost' => '6', 'session_time' =>'1800'})
+session3 = Session.new({'session_name' => 'circuits', 'capacity' => '30', 'cost' => '7', 'session_time' => '1900'})
+
+session1.save()
+session2.save()
+session3.save()
+Session.show()
+Session.find(session2.id)
+session3.delete_session()
 #
 # booking1 = Booking.new({'member_id' => member1.id, 'session_id' => session1.id})
 # booking2 = Booking.new({'member_id' => member2.id, 'session_id' => session1.id})

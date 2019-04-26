@@ -12,7 +12,50 @@ class Session
     @capacity = options['capacity'].to_i
     @cost = options['cost'].to_i
     @session_time = options['session_time'].to_i
+  end
 
+  def save()
+    sql = "INSERT INTO sessions (
+    session_name,
+    capacity,
+    cost,
+    session_time
+    )
+    VALUES (
+      $1, $2, $3, $4
+    )
+      RETURNING id;"
+      values = [@session_name, @capacity, @cost, @session_time]
+      result = SqlRunner.run(sql, values)
+      id = result.first['id']
+      @id = id.to_i
+  end
+
+  def delete_session()
+    sql = "DELETE FROM sessions WHERE id = $1 RETURNING *;"
+    values = [@id]
+    SqlRunner.run(sql, values)
+    # p session_name
+  end
+
+  def self.delete_all()
+    sql = "DELETE FROM sessions"
+    SqlRunner.run(sql)
+  end
+
+  def self.show()
+    sql = "SELECT * FROM sessions"
+    result = SqlRunner.run(sql)
+    list = result.map{|each|Session.new(each)}
+    # p list
+  end
+
+  def self.find(id)
+    sql = "SELECT * FROM sessions WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql,values)
+    x = result.map{|each|Session.new(each)}
+    # p x
   end
 
 end

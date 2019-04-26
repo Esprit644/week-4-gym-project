@@ -14,7 +14,7 @@ CREATE TABLE sessions(
 id SERIAL8 PRIMARY KEY,
 session_name VARCHAR(255),
 cost INT2,
-session_time INT2,
+session_time INT4,
 capacity INT2
 );
 
