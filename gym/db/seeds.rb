@@ -42,3 +42,5 @@ booking1.save()
 booking2.save()
 booking3.save()
 booking4.save()
+
+Booking.show()

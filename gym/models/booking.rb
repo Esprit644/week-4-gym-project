@@ -25,4 +25,16 @@ class Booking
     @id = id.to_i
   end
 
+  # def self.delete_all()
+  #   sql = "DELETE FROM bookings"
+  #   SqlRunner.run(sql)
+  # end
+
+  def self.show()
+    sql = "SELECT * FROM bookings"
+    results = SqlRunner.run(sql)
+    list = results.map{|each|Booking.new(each)}
+    # p list
+  end
+
 end
