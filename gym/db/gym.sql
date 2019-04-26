@@ -1,6 +1,6 @@
 DROP TABLE bookings;
 DROP TABLE members;
-DROP TABLE classes;
+DROP TABLE sessions;
 
 CREATE TABLE members(
 id SERIAL8 PRIMARY KEY,
@@ -10,16 +10,16 @@ phone_number INT2,
 email VARCHAR(255)
 );
 
-CREATE TABLE classes(
+CREATE TABLE sessions(
 id SERIAL8 PRIMARY KEY,
-class_name VARCHAR(255),
+session_name VARCHAR(255),
 cost INT2,
-class_time INT2,
+session_time INT2,
 capacity INT2
 );
 
 CREATE TABLE bookings(
 id SERIAL8 PRIMARY KEY,
 member_id INT8 REFERENCES members(id) ON DELETE CASCADE,
-class_id INT8 REFERENCES classes(id) ON DELETE CASCADE
+session_id INT8 REFERENCES sessions(id) ON DELETE CASCADE
 );
