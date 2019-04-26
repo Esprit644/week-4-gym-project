@@ -9,9 +9,10 @@ class Session
   def initialize(options)
     @id = options['id'].to_i
     @session_name = options['session_name']
-    @capacity = options.['capacity'].to_i
-    @cost = options.['cost'].to_i
-    @session_time = options.['session_time'].to_i
+    @capacity = options['capacity'].to_i
+    @cost = options['cost'].to_i
+    @session_time = options['session_time'].to_i
+
   end
 
 end

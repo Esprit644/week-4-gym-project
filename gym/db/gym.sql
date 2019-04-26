@@ -6,7 +6,7 @@ CREATE TABLE members(
 id SERIAL8 PRIMARY KEY,
 first_name VARCHAR(255),
 last_name VARCHAR(255),
-phone_number INT2,
+phone_number INT4,
 email VARCHAR(255)
 );
 
