@@ -38,6 +38,26 @@ class Session
     # p session_name
   end
 
+  def update()
+    sql = "UPDATE sessions
+    SET(
+      session_name,
+      capacity,
+      cost,
+      session_time
+      )
+      =
+      ($1,
+       $2,
+       $3,
+       $4)
+        WHERE
+        id = $5;"
+      values = [@session_name, @capacity, @cost, @session_time, @id]
+      result = SqlRunner.run(sql, values)
+      # p "We have updated the #{session_name} file"
+  end
+
   def self.delete_all()
     sql = "DELETE FROM sessions"
     SqlRunner.run(sql)

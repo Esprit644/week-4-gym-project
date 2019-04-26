@@ -42,7 +42,7 @@ class Booking
     values = [id]
     result = SqlRunner.run(sql, values)
     list = result.map{|each|Booking.new(each)}
-    p list
+    # p list
 
   end
 
