@@ -1,1 +1,10 @@
 <h1> Please use this page to view and edit all member data</h1>
+
+  <% @member.to_a.each do |mem| %>
+    <p> Name          : <%=mem.first_name + " " + mem.last_name%> </p>
+    <p> Contact number: <%=mem.phone_number %> </p>
+    <p> Email         : <%=mem.email%> </p>
+    <p> </P>
+    <p> ------------------------------------</P>
+    <p> </P>
+  <% end %>

@@ -36,6 +36,7 @@ class Member
     sql = "SELECT * FROM members;"
     result = SqlRunner.run(sql)
     list = result.map{|each|Member.new(each)}
+    return list
     # binding.pry
      # p list
   end
