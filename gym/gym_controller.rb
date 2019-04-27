@@ -10,3 +10,11 @@ also_reload('./models/*')
 get '/gym' do
   erb(:index)
 end
+
+get '/show_member' do
+  erb(:show_member)
+end
+
+get '/show_session' do
+  erb (:show_session)
+end

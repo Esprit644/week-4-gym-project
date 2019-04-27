@@ -46,5 +46,5 @@ booking4.save()
 Booking.show()
 Booking.find(booking4.id)
 
-session3.session_name = 'speed work'
-session3.update()
+# session3.session_name = 'speed work'
+# session3.update()
