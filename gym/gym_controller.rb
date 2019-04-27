@@ -51,19 +51,23 @@ end
 # edit
 get '/edit_member/:id/edit' do
   @member = Member.find(params[:id])
-  binding.pry
   erb(:edit_member)
 end
 
-
 # update
-
+post '/edit_member/:id/edit' do
+  Member.new(params).update
+  redirect to '/show_member'
+end
 
 # destroy
 
-get '/show_member/:id/delete1' do
-  @member = Member.find(params[:id])
+get '/show_member/:id/delete' do
+  @memb = Member.find(params[:id])
   # binding.pry
-  @member.delete1()
+  @memb.delete()
+  # Member.delete(@member)
+  # binding.pry
+  # nil
   erb(:show_member)
 end

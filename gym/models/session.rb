@@ -78,4 +78,8 @@ class Session
     # p x
   end
 
+  def self.map_items(data)
+    return data.map { |session| Session.new(session) }
+  end
+
 end

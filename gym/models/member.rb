@@ -74,13 +74,13 @@ class Member
     values = [id]
     result = SqlRunner.run(sql, values).first
     # member = result.map{|each|Member.new(each)}
-    member = Member.new(result)
+    members = Member.new(result)
     # p member.id
-    return member
+    return members
 
   end
 
-  def delete1()
+  def delete()
     sql = "DELETE
     FROM members
     WHERE id = $1;"
@@ -88,6 +88,10 @@ class Member
     SqlRunner.run(sql, values)
 
      # p first_name + " " + last_name
+  end
+
+  def self.map_items(data)
+    return data.map { |member| Member.new(member) }
   end
 
 end
