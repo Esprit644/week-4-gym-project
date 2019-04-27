@@ -19,7 +19,7 @@ member4.save()
 Member.find_all()
 Member.find(member2.id)
 
-# member2.delete()
+
 
 session1 = Session.new({'session_name' => 'yoga', 'capacity' => '10', 'cost' => '5', 'session_time' => '1700'})
 session2 = Session.new({'session_name' => 'pilates', 'capacity' => '20', 'cost' => '6', 'session_time' =>'1800'})
@@ -48,3 +48,5 @@ Booking.find(booking4.id)
 
 # session3.session_name = 'speed work'
 # session3.update()
+
+ # member2.delete()

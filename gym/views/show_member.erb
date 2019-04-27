@@ -1,10 +1,24 @@
 <h1> Please use this page to view and edit all member data</h1>
 
-  <% @member.to_a.each do |mem| %>
-    <p> Name          : <%=mem.first_name + " " + mem.last_name%> </p>
+<p> </P>
+<h2> <a href="/new_member">Add new member</a> </h2>
+<p></P>
+<p> ------------------------------------</P>
+  <% @member.each do |mem| %>
+    <p> Name          : <%=mem.first_name + " " + mem.last_name %> </p>
     <p> Contact number: <%=mem.phone_number %> </p>
-    <p> Email         : <%=mem.email%> </p>
-    <p> </P>
+    <p> Email         : <%=mem.email %> </p>
+    <p> Membership ID : <%=mem.id %> </P>
+    <p>  </P>
+    <p>
+      <a href="/edit_member/<%= mem.id%>/edit">Update Member</a></p>
+      <p>
+      <a href="/show_member/<%= mem.id%>/delete1">Delete Member</a></p>
+
+
     <p> ------------------------------------</P>
     <p> </P>
+
+
+    <p></p>
   <% end %>

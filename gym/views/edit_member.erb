@@ -1,0 +1,36 @@
+<form method="post" action="/edit_member/<%= @member.id %>edit">
+
+  <label for="first-name-field">First name:</label>
+ <input
+ type="text"
+ name="first_name"
+ id="first-name-field"
+ value="<%= @member.first_name %>"
+ />
+
+ <label for="last-name-field">Last name:</label>
+ <input
+ type ="text"
+ name="last_name"
+ id="last-name-field"
+ value="<%= @member.last_name %>"
+ />
+
+ <label for="phone-number-field">Phone number:</label>
+ <input
+ type ="number"
+ name="phone_number"
+ id="phone-number-field"
+ value ="<%= @member.phone_number %>"
+ />
+
+ <label for="email-field">Email:</label>
+ <input
+ type ="text"
+ name ="email"
+ id ="email-field"
+ value="<%=@member.email%>"
+ />
+
+ <input  type='submit' value='Update member'></input>
+</form>

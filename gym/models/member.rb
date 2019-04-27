@@ -32,6 +32,27 @@ class Member
     @id =id.to_i
   end
 
+
+  def update()
+    sql = "UPDATE members
+    SET(
+      first_name,
+      last_name,
+      phone_number,
+      email
+      )
+      =
+      ($1,
+       $2,
+       $3,
+       $4)
+        WHERE
+        id = $5;"
+      values = [@first_name, @last_name, @phone_number, @email, @id]
+      result = SqlRunner.run(sql, values)
+      # p "We have updated the #{session_name} file"
+  end
+
   def self.find_all()
     sql = "SELECT * FROM members;"
     result = SqlRunner.run(sql)
@@ -51,20 +72,22 @@ class Member
           FROM members
           WHERE id = $1;"
     values = [id]
-    result = SqlRunner.run(sql, values)
-    individual = result.map{|each|Member.new(each)}
-    #p individual
+    result = SqlRunner.run(sql, values).first
+    # member = result.map{|each|Member.new(each)}
+    member = Member.new(result)
+    # p member.id
+    return member
+
   end
 
-  def delete()
+  def delete1()
     sql = "DELETE
     FROM members
-    WHERE id = $1 RETURNING *;"
+    WHERE id = $1;"
     values = [@id]
-    # binding.pry
     SqlRunner.run(sql, values)
 
-     #p first_name + " " + last_name
+     # p first_name + " " + last_name
   end
 
 end

@@ -25,6 +25,7 @@ end
 # ******MEMBERS***************************
 
 
+
 # show
 get '/show_member' do
   @member = Member.find_all()
@@ -35,14 +36,34 @@ end
 
 # new
 
+get '/new_member' do
+
+  erb(:new_member)
+end
 
 # create
-
+post '/new_member' do
+  @member = Member.new(params)
+  @member.save()
+  redirect to '/show_member'
+end
 
 # edit
+get '/edit_member/:id/edit' do
+  @member = Member.find(params[:id])
+  binding.pry
+  erb(:edit_member)
+end
 
 
 # update
 
 
 # destroy
+
+get '/show_member/:id/delete1' do
+  @member = Member.find(params[:id])
+  # binding.pry
+  @member.delete1()
+  erb(:show_member)
+end
