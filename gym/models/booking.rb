@@ -25,6 +25,25 @@ class Booking
     @id = id.to_i
   end
 
+  def update_booking()
+    sql = " UPDATE bookings SET(
+    session_name,
+    capacity,
+    cost,
+    session_time
+    )
+    = (
+      $1,
+      $2,
+      $3,
+      $4
+      )
+      WHERE id = $5;"
+      values = [@session_name, @capacity, @cost, @session_time, @id ]
+      SqlRunner.run(sql, values)
+      
+  end
+
   def delete_booking()
     sql = "DELETE FROM bookings WHERE id = $1;"
     values = [@id]
