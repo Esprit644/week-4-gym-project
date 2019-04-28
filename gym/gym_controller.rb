@@ -87,3 +87,9 @@ post '/edit_session/:id' do
  Session.new(params).update
   redirect to '/show_session'
 end
+
+
+get '/show_session/:id/delete' do
+  @sessions = Session.find_session(params[:id]).delete_session()
+redirect to '/show_session'
+end
