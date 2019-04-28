@@ -53,6 +53,16 @@ class Member
       # p "We have updated the #{session_name} file"
   end
 
+  def delete()
+    sql = "DELETE
+    FROM members
+    WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
+
+     # p first_name + " " + last_name
+  end
+
   def self.find_all()
     sql = "SELECT * FROM members;"
     result = SqlRunner.run(sql)
@@ -80,15 +90,7 @@ class Member
 
   end
 
-  def delete()
-    sql = "DELETE
-    FROM members
-    WHERE id = $1;"
-    values = [@id]
-    SqlRunner.run(sql, values)
 
-     # p first_name + " " + last_name
-  end
 
   def self.map_items(data)
     return data.map { |member| Member.new(member) }

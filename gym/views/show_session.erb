@@ -1,1 +1,25 @@
 <h1>Use this page to view and edit all gym sessions</h1>
+
+<p> </P>
+<h2> <a href="/new_session">Add new session</a> </h2>
+<p></P>
+<p> ------------------------------------</P>
+  <% @session.each do |sess| %>
+    <p> Name          : <%=sess.session_name %> </p>
+    <p> Contact number: <%=sess.capacity %> </p>
+    <p> Email         : <%=sess.cost %> </p>
+    <p> Time          : <%=sess.session_time %> </P
+    <p> Session ID    : <%=sess.id %> </P>
+    <p>  </P>
+    <p>
+      <a href="/edit_session/<%= sess.id%>/edit">Update session</a></p>
+      <p>
+      <a href="/show_session/<%= sess.id%>/delete">Delete session</a></p>
+
+
+    <p> ------------------------------------</P>
+    <p> </P>
+
+
+    <p></p>
+  <% end %>

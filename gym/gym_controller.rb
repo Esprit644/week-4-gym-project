@@ -17,9 +17,7 @@ end
 #   erb(:show_member)
 # end
 
-get '/show_session' do
-  erb (:show_session)
-end
+
 
 
 # ******MEMBERS***************************
@@ -32,12 +30,8 @@ get '/show_member' do
   erb(:show_member)
 end
 
-
-
 # new
-
 get '/new_member' do
-
   erb(:new_member)
 end
 
@@ -55,7 +49,7 @@ get '/edit_member/:id/edit' do
 end
 
 # update
-post '/edit_member/:id/edit' do
+post '/edit_member/:id' do
   Member.new(params).update
   redirect to '/show_member'
 end
@@ -63,11 +57,26 @@ end
 # destroy
 
 get '/show_member/:id/delete' do
-  @memb = Member.find(params[:id])
+  @member = Member.find(params[:id]).delete()
   # binding.pry
-  @memb.delete()
-  # Member.delete(@member)
-  # binding.pry
-  # nil
-  erb(:show_member)
+
+  #  WHY THE HELL DOES THIS LINE NOT WORK!!!!!!!!!!!!!!!!!!!!Í
+  # @member.delete()
+
+  redirect to '/show_member'
+  # erb(:show_member)
+end
+
+
+
+# SESSION*****************************************
+
+get '/show_session' do
+  @session = Session.show()
+  erb(:show_session)
+end
+
+get '/edit_session/:id/edit' do
+  @session = Session.find(params[:id])
+  erb(:edit_session)
 end
