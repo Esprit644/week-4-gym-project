@@ -70,25 +70,38 @@ end
 
 
 # SESSION*****************************************
+# new
+get '/new_session' do
+  erb(:new_session)
+end
 
+# create
+post '/new_session' do
+  @session = Session.new(params)
+  @session.save()
+  redirect to '/show_session'
+end
+
+# show
 get '/show_session' do
   @session = Session.show()
   erb(:show_session)
 end
 
+# edit
 get '/edit_session/:id/edit' do
   @sessions = Session.find_session(params[:id])
   # binding.pry
 erb(:edit_session)
-
 end
 
+# update
 post '/edit_session/:id' do
  Session.new(params).update
   redirect to '/show_session'
 end
 
-
+# destroy
 get '/show_session/:id/delete' do
   @sessions = Session.find_session(params[:id]).delete_session()
 redirect to '/show_session'
