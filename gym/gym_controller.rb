@@ -106,3 +106,22 @@ get '/show_session/:id/delete' do
   @sessions = Session.find_session(params[:id]).delete_session()
 redirect to '/show_session'
 end
+
+
+
+# bookings***********************************************
+
+# new
+get '/show_booking' do
+erb(:show_booking)
+end
+
+# create
+
+# show
+
+# edit
+
+# update
+
+# destroy
