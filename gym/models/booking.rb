@@ -25,6 +25,13 @@ class Booking
     @id = id.to_i
   end
 
+  def delete_booking()
+    sql = "DELETE FROM bookings WHERE id = $1;"
+    values = [@id]
+    SqlRunner.run(sql, values)
+  end
+
+
   # def self.delete_all()
   #   sql = "DELETE FROM bookings"
   #   SqlRunner.run(sql)
