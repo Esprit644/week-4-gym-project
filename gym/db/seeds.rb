@@ -29,7 +29,7 @@ session1.save()
 session2.save()
 session3.save()
 Session.show()
-Session.find(session2.id)
+Session.find_session(session2.id)
 # session3.delete_session()
 
 booking1 = Booking.new({'member_id' => member1.id, 'session_id' => session1.id})

@@ -77,6 +77,13 @@ get '/show_session' do
 end
 
 get '/edit_session/:id/edit' do
-  @session = Session.find(params[:id])
-  erb(:edit_session)
+  @sessions = Session.find_session(params[:id])
+  # binding.pry
+erb(:edit_session)
+
+end
+
+post '/edit_session/:id' do
+ Session.new(params).update
+  redirect to '/show_session'
 end

@@ -1,6 +1,6 @@
 <h1> Update the session details here :</h1>
 
-<form action= '/edit_session/<%= @session.id %>' method = "post">
+<form method = "post" action= "/edit_session/<%= @sessions.id %>" >
 
 
 
@@ -9,7 +9,7 @@
    type="text"
    name="session_name"
    id="session-name-field"
-   value="<%= @session.session_name %>"
+   value="<%= @sessions.session_name %>"
    />
 
    <label for="capacity-field"> Capacity:</label>
@@ -17,18 +17,27 @@
    type="number"
    name ="capacity"
    id = "capacity-field"
-   value="<%= @session.capacity %>"
+   value="<%= @sessions.capacity %>"
    />
 
 
    <label for="cost-field">Cost:</label>
    <input
-   type = "number"
-   name = "cost"
-   id = "cost-field"
-   value = " <%=@session.cost %>"
+   type ="number"
+   name ="cost"
+   id ="cost-field"
+   value ="<%= @sessions.cost %>"
    />
-   
+
+   <label for="session-time-field">Time:</label>
+   <input
+   type = "number"
+   name ="session_time"
+   id ="session-time-field"
+   value = "<%= @sessions.session_time %>"
+   />
+
+   <input type = 'submit' value = 'Update session'/>
 
 
   </form>

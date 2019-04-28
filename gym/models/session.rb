@@ -70,12 +70,15 @@ class Session
     # p list
   end
 
-  def self.find(id)
+  def self.find_session(id)
     sql = "SELECT * FROM sessions WHERE id = $1;"
     values = [id]
-    result = SqlRunner.run(sql,values)
-    x = result.map{|each|Session.new(each)}
-    # p x
+    result = SqlRunner.run(sql,values).first
+    # result.map{|each|Session.new(each)}
+    sessions = Session.new(result)
+
+    return sessions
+
   end
 
   def self.map_items(data)
