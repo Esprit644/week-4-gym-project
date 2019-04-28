@@ -112,14 +112,20 @@ end
 # bookings***********************************************
 
 # new
-get '/show_booking' do
+get '/new_booking' do
 erb(:show_booking)
 end
 
 # create
 
 # show
-
+get '/show_booking' do
+   @booking = Booking.show()
+   # @member = Member.find_all()
+  # binding.pry
+  # nil
+erb(:show_booking)
+end
 # edit
 
 # update

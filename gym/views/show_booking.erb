@@ -1,1 +1,28 @@
 <h1>View bookings here:</h1>
+
+<p> </P>
+<h2> <a href="/show_booking">Show booking</a> </h2>
+<p></P>
+<p> ------------------------------------</P>
+  <% @booking.each do |book| %>
+
+    <p> Booking ref   : <%=book.id %> </p>
+    <p> Member        : <%=book.member_id %> </p>
+    <p> Session       : <%=book.session_id %> </p>
+
+
+
+
+    <p>  </P>
+    <p>
+      <a href="/edit_booking/<%= book.id%>/edit">Update booking</a></p>
+      <p>
+      <a href="/show_booking/<%= book.id%>/delete">Delete booking</a></p>
+
+
+    <p> ------------------------------------</P>
+    <p> </P>
+
+
+    <p></p>
+  <% end %>
