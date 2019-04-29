@@ -1,64 +1,31 @@
 <form method="post" action="/edit_booking/<%= @booking.id %>">
 <p>
-  <label for="booking-id-field">Booking ID:</label>
-  <input
-  type="number"
-  name="id"
-  id="booking-id-field"
-  value="<%= @booking.id %>"
-  />
+
+  <label for="session_select"> Select session:</label>
+
+  <select name="session_id" id="session_select">
+
+    <option value ="session.id">xxxxxxx</option>
+
+  
+
+      <% @sessions.each do |session| %>
+        <option value= <%=session.id%> ><%=session.session_name%></option>
+      <%end%>
+  </select>
 </P>
 
 <p>
-  <label for="session-id-field">Session ID:</label>
-  <input
-  type="number"
-  name="session_id"
-  id="session-id-field"
-  value="<%= @booking.session_id%>"
-  />
+  <label for="member_select"> Select member:</label>
+    <select name= "member_id" id="member_select">
+      <option value = "member.id"> Select member</option>
 
+        <% @members.each do |member| %>
+          <option value= <%= member.id %>> <%= member.first_name %> <%= member.last_name%>  - Membership ID:<%= member.id%> </option>
+        <% end%>
 
+</p>
 
-
-
-  <label for="session-name-field">Session name:</label>
-  <input
-  type="text"
-  name="session.session_name"
-  id="session-name-field"
-  value="<%= @booking.session.session_name%>"
-  />
-</P>
-
-<p>
-  <label for="member-id-field">Member ID:</label>
-  <input
-  type="number"
-  name="member_id"
-  id="member-id-field"
-  value="<%= @booking.member_id%>"
-  />
-
-
-
-  <label for="member-name-field">Member name:</label>
-  <input
-  type="text"
-  name="member.first_name"
-  id="member-name-field"
-  value="<%= @booking.member.first_name%>"
-  />
-
-
-
-  <label for="member-last-field">Member name:</label>
-  <input
-  type="text"
-  name="member.last_name"
-  id="member-last-field"
-  value="<%= @booking.member.last_name%>"
-  />
 
 
 

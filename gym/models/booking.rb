@@ -3,7 +3,7 @@ require_relative('./member.rb')
 
 class Booking
 
-  attr_reader :id
+  attr_reader (:id)
   attr_accessor :member_id,:session_id
 
   def initialize(options)
@@ -27,28 +27,21 @@ class Booking
     @id = id.to_i
   end
 
-  def update_booking()
-    sql = " UPDATE bookings SET(
-    session_name,
-    capacity,
-    cost,
-    session_time
+
+  def update()
+    sql = "UPDATE bookings SET(
+    session_id,
+    member_id
     )
     = (
       $1,
-      $2,
-      $3,
-      $4
+      $2
       )
-      WHERE id = $5;"
-      values = [@session_name, @capacity, @cost, @session_time, @id ]
+      WHERE id = $3;"
+      values = [@session_id, @member_id, @id]
       SqlRunner.run(sql, values)
-
   end
 
-  # def format_name
-  #   p "member.#{first_name}.capitalize"  "member.#{last_name}.capitalize"
-  # end
 
   def delete_booking()
     sql = "DELETE FROM bookings WHERE id = $1;"
