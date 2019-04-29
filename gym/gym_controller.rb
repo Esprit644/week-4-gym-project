@@ -110,10 +110,18 @@ end
 
 # new
 get '/new_booking' do
-erb(:show_booking)
+  @sessions = Session.show()
+  @members = Member.find_all()
+erb(:new_booking)
 end
 
 # create
+post '/new_booking' do
+  @booking = Booking.new(params)
+  @booking.save()
+  redirect to '/show_booking'
+  erb(:new_booking)
+end
 
 # show
 get '/show_booking' do
@@ -121,19 +129,17 @@ get '/show_booking' do
 erb(:show_booking)
 end
 
-
-
-get '/show_booking/:id' do
-   @booking = Booking.find(params[:id])
-erb(:show_booking)
-end
 # edit
-
-# get 'edit_booking/:id/edit' do
-#   @booking =
-# end
+get '/edit_booking/:id/edit' do
+   @booking = Booking.find(params[:id])
+erb(:edit_booking)
+end
 
 # update
+post '/edit_booking/update' do
+  @booking = Booking.new(params).update
+  redirect to '/show_booking'
+end
 
 # destroy
 

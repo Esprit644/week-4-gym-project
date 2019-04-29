@@ -1,36 +1,68 @@
 <form method="post" action="/edit_booking/<%= @booking.id %>">
+<p>
+  <label for="booking-id-field">Booking ID:</label>
+  <input
+  type="number"
+  name="id"
+  id="booking-id-field"
+  value="<%= @booking.id %>"
+  />
+</P>
 
-  <!-- <label for="first-name-field">First name:</label>
- <input
- type="text"
- name="first_name"
- id="first-name-field"
- value="<%= @member.first_name %>"
- />
+<p>
+  <label for="session-id-field">Session ID:</label>
+  <input
+  type="number"
+  name="session_id"
+  id="session-id-field"
+  value="<%= @booking.session_id%>"
+  />
 
- <label for="last-name-field">Last name:</label>
- <input
- type ="text"
- name="last_name"
- id="last-name-field"
- value="<%= @member.last_name %>"
- />
 
- <label for="phone-number-field">Phone number:</label>
- <input
- type ="number"
- name="phone_number"
- id="phone-number-field"
- value ="<%= @member.phone_number %>"
- />
 
- <label for="email-field">Email:</label>
- <input
- type ="text"
- name ="email"
- id ="email-field"
- value="<%=@member.email%>"
- />
 
- <input  type='submit' value='Update member'></input>
-</form> -->
+
+  <label for="session-name-field">Session name:</label>
+  <input
+  type="text"
+  name="session.session_name"
+  id="session-name-field"
+  value="<%= @booking.session.session_name%>"
+  />
+</P>
+
+<p>
+  <label for="member-id-field">Member ID:</label>
+  <input
+  type="number"
+  name="member_id"
+  id="member-id-field"
+  value="<%= @booking.member_id%>"
+  />
+
+
+
+  <label for="member-name-field">Member name:</label>
+  <input
+  type="text"
+  name="member.first_name"
+  id="member-name-field"
+  value="<%= @booking.member.first_name%>"
+  />
+
+
+
+  <label for="member-last-field">Member name:</label>
+  <input
+  type="text"
+  name="member.last_name"
+  id="member-last-field"
+  value="<%= @booking.member.last_name%>"
+  />
+
+
+
+
+ <input  type='submit' value='Update booking'></input>
+
+</form>

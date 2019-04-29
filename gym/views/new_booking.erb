@@ -1,2 +1,31 @@
+<h1> Add a new booking here</h1>
 
-    
+<form method="post" action="/new_booking">
+
+
+  <label for="session_select">Select session:</label>
+  <select name="session_id" id="session_select">
+
+    <option value ="session.id">Select session</option>
+
+      <% @sessions.each do |session| %>
+        <option value= <%=session.id%> ><%=session.session_name%></option>
+      <%end%>
+  </select>
+
+  <p>
+    <label for="member_select"> Select member:<label>
+      <select name= "member_id" id="member_select">
+        <option value = "member.id"> Select member</option>
+
+          <% @members.each do |member| %>
+            <option value= <%= member.id %>> <%= member.first_name %></option>
+          <% end%>
+
+</p>
+
+
+
+<input type="submit" value ="Create booking"/>
+
+</form>
