@@ -129,6 +129,16 @@ erb(:show_booking)
 end
 # edit
 
+# get 'edit_booking/:id/edit' do
+#   @booking =
+# end
+
 # update
 
 # destroy
+
+get '/show_booking/:id/delete' do
+  @booking = Booking.find(params[:id]).delete_booking()
+  # @booking.delete_booking()
+  redirect to '/show_booking'
+end
