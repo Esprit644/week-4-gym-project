@@ -64,7 +64,7 @@ class Booking
     values = [@session_id]
     results = SqlRunner.run(sql, values).first
     session = Session.new(results)
-    return session 
+    return session
   end
 
 
@@ -76,32 +76,12 @@ class Booking
   def self.show()
     sql = "SELECT * FROM bookings"
     results = SqlRunner.run(sql)
-     list = results.map{|each|Booking.new(each)}
+    list = results.map{|each|Booking.new(each)}
     return list
     # p list
   end
 
-  # def self.show1()
-  #   sql = "SELECT
-  #   bookings.id,
-  #   members.first_name,
-  #   members.last_name,
-  #   sessions.session_name,
-  #   sessions.session_time
-  #   FROM members
-  #   INNER JOIN bookings
-  #   ON members.id = bookings.member_id
-  #   INNER JOIN sessions
-  #   ON sessions.id = bookings.session_id;"
-  #   results = SqlRunner.run(sql)
-  #    list = results.map{|each|Booking.new(each)}
-  #    list1 = results.map{|each|Member.new(each)}
-  #    list2 = results.map{|each|Session.new(each)}
-  #    # binding.pry
-  #   return list, list1, list2
-  #   # p list
-  #
-  # end
+
 
   def self.find(id)
     sql = "SELECT * FROM bookings where id = $1"

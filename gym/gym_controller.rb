@@ -116,6 +116,13 @@ end
 # create
 
 # show
+get '/show_booking' do
+   @booking = Booking.show()
+erb(:show_booking)
+end
+
+
+
 get '/show_booking/:id' do
    @booking = Booking.find(params[:id])
 erb(:show_booking)
