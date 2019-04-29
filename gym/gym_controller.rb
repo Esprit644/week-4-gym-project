@@ -134,13 +134,17 @@ get '/edit_booking/:id/edit' do
    @booking = Booking.find(params[:id])
    @sessions = Session.show()
    @members = Member.find_all()
+   # binding.pry
+   # nil
 erb(:edit_booking)
 end
 
 # update
 post '/edit_booking/:id' do
   @booking = Booking.new(params).update()
-
+# binding.pry
+# nil
+# @booking
   redirect to '/show_booking'
 end
 
