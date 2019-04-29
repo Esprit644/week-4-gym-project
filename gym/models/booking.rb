@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./member.rb')
 
 class Booking
 
@@ -50,6 +51,22 @@ class Booking
     SqlRunner.run(sql, values)
   end
 
+  def member()
+    sql = "SELECT * FROM members where id = $1;"
+    values = [@member_id]
+    results = SqlRunner.run(sql,values).first
+    member = Member.new(results)
+    return member
+  end
+
+  def session()
+    sql = "SELECT * FROM sessions WHERE id = $1;"
+    values = [@session_id]
+    results = SqlRunner.run(sql, values).first
+    session = Session.new(results)
+    return session 
+  end
+
 
   # def self.delete_all()
   #   sql = "DELETE FROM bookings"
@@ -64,33 +81,34 @@ class Booking
     # p list
   end
 
-  def self.show1()
-    sql = "SELECT
-    bookings.id,
-    members.first_name,
-    members.last_name,
-    sessions.session_name,
-    sessions.session_time
-    FROM members
-    INNER JOIN bookings
-    ON members.id = bookings.member_id
-    INNER JOIN sessions
-    ON sessions.id = bookings.session_id;"
-    results = SqlRunner.run(sql)
-     list = results.map{|each|Booking.new(each)}
-     list1 = results.map{|each|Member.new(each)}
-     list2 = results.map{|each|Session.new(each)}
-     # binding.pry
-    return list, list1, list2
-    # p list
-
-  end
+  # def self.show1()
+  #   sql = "SELECT
+  #   bookings.id,
+  #   members.first_name,
+  #   members.last_name,
+  #   sessions.session_name,
+  #   sessions.session_time
+  #   FROM members
+  #   INNER JOIN bookings
+  #   ON members.id = bookings.member_id
+  #   INNER JOIN sessions
+  #   ON sessions.id = bookings.session_id;"
+  #   results = SqlRunner.run(sql)
+  #    list = results.map{|each|Booking.new(each)}
+  #    list1 = results.map{|each|Member.new(each)}
+  #    list2 = results.map{|each|Session.new(each)}
+  #    # binding.pry
+  #   return list, list1, list2
+  #   # p list
+  #
+  # end
 
   def self.find(id)
     sql = "SELECT * FROM bookings where id = $1"
     values = [id]
     result = SqlRunner.run(sql, values)
     list = result.map{|each|Booking.new(each)}
+    return list.first
     # p list
 
   end

@@ -58,13 +58,10 @@ end
 
 get '/show_member/:id/delete' do
   @member = Member.find(params[:id]).delete()
-  # binding.pry
 
-  #  WHY THE HELL DOES THIS LINE NOT WORK!!!!!!!!!!!!!!!!!!!!Í
-  # @member.delete()
 
   redirect to '/show_member'
-  # erb(:show_member)
+
 end
 
 
@@ -119,11 +116,8 @@ end
 # create
 
 # show
-get '/show_booking' do
-   @booking = Booking.show()
-   # @member = Member.find_all()
-  # binding.pry
-  # nil
+get '/show_booking/:id' do
+   @booking = Booking.find(params[:id])
 erb(:show_booking)
 end
 # edit
