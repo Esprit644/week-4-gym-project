@@ -1,0 +1,16 @@
+<h1>The sessions listed below are still to start :</h1>
+
+<form method="post" action="/xtime_session">
+
+  <% @session.each do |session|%>
+  <p>Session  : <%= session.session_name %> </p>
+  <p>Time     : <%= session.session_time %> </p>
+  <p>Capacity : <%= session.capacity %> </p>
+
+  <p>-------------------------------------------</p>
+
+  <%end%>
+
+
+
+</form>

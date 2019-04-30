@@ -1,23 +1,11 @@
 <form method="post" action="/edit_booking/<%= @booking.id %>">
 
-
-<p> <%= @booking.session.session_name %> </p>
-<p>  <%= @booking.member.last_name%>  </p>
-<p> <%= @booking.session.id %> </p>
-
-
-
-
 <p>
-
   <label for="session_select"> Select session:</label>
 
   <select name="session_id" id="session_select">
 
-
-
-
-<P><option value= <%= @booking.session.id %> > <%= @booking.session.session_name %> </option></p>
+    <P><option value= <%= @booking.session.id %> > <%= @booking.session.session_name %> </option></p>
 
       <% @sessions.each do |session| %>
         <option value= <%=session.id%> ><%=session.session_name%></option>
@@ -33,14 +21,8 @@
         <% @members.each do |member| %>
           <option value= <%= member.id %>> <%= member.first_name %> <%= member.last_name %> </option>
         <% end%>
-      </select>
-
+    </select>
 </p>
-
-
-
-
-
- <input  type='submit' value='Update booking'></input>
+<input  type='submit' value='Update booking'></input>
 
 </form>

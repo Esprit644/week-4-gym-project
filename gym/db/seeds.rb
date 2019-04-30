@@ -21,13 +21,15 @@ Member.find(member2.id)
 
 
 
-session1 = Session.new({'session_name' => 'yoga', 'capacity' => '10', 'cost' => '5', 'session_time' => '1700'})
-session2 = Session.new({'session_name' => 'pilates', 'capacity' => '20', 'cost' => '6', 'session_time' =>'1800'})
-session3 = Session.new({'session_name' => 'circuits', 'capacity' => '30', 'cost' => '7', 'session_time' => '1900'})
+session1 = Session.new({'session_name' => 'yoga', 'capacity' => '10', 'cost' => '5', 'session_time' => '17:00'})
+session2 = Session.new({'session_name' => 'pilates', 'capacity' => '20', 'cost' => '6', 'session_time' =>'18:00'})
+session3 = Session.new({'session_name' => 'circuits', 'capacity' => '30', 'cost' => '7', 'session_time' => '19:00'})
+session4 = Session.new({'session_name' => 'circuits', 'capacity' => '40', 'cost' => '8', 'session_time' => '09:00'})
 
 session1.save()
 session2.save()
 session3.save()
+session4.save()
 Session.show()
 Session.find_session(session2.id)
 # session3.delete_session()
@@ -52,3 +54,5 @@ Booking.find(booking4.id)
 # session3.update()
 
  # member2.delete()
+
+Session.sessions_by_time()

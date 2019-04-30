@@ -11,7 +11,7 @@ class Session
     @session_name = options['session_name']
     @capacity = options['capacity'].to_i
     @cost = options['cost'].to_i
-    @session_time = options['session_time'].to_i
+    @session_time = options['session_time']
   end
 
   def save()
@@ -64,9 +64,11 @@ class Session
   end
 
   def self.show()
-    sql = "SELECT * FROM sessions"
+    sql = "SELECT * FROM sessions;"
     result = SqlRunner.run(sql)
     list = result.map{|each|Session.new(each)}
+    # binding.pry
+
     # p list
   end
 
@@ -83,6 +85,14 @@ class Session
 
   def self.map_items(data)
     return data.map { |session| Session.new(session) }
+  end
+
+
+
+  def self.sessions_by_time()
+    sql = "SELECT * FROM sessions WHERE sessions.session_time >= CURRENT_TIME;"
+    result = SqlRunner.run(sql)
+    list = result.map{|each|Session.new(each)}
   end
 
 end

@@ -85,6 +85,11 @@ get '/show_session' do
   erb(:show_session)
 end
 
+get '/xtime_session' do
+  @session = Session.sessions_by_time()
+  erb(:xtime_session)
+end
+
 # edit
 get '/edit_session/:id/edit' do
   @sessions = Session.find_session(params[:id])
@@ -142,9 +147,6 @@ end
 # update
 post '/edit_booking/:id' do
   @booking = Booking.new(params).update()
-# binding.pry
-# nil
-# @booking
   redirect to '/show_booking'
 end
 
