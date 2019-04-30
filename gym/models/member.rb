@@ -63,6 +63,8 @@ class Member
      # p first_name + " " + last_name
   end
 
+
+
   def self.find_all()
     sql = "SELECT * FROM members;"
     result = SqlRunner.run(sql)
@@ -86,7 +88,19 @@ class Member
     # member = result.map{|each|Member.new(each)}
     members = Member.new(result)
     # p member.id
-    return members
+    # return members
+
+  end
+
+  def self.finding(id)
+    sql = "SELECT *
+          FROM members
+          WHERE id = $1;"
+    values = [id]
+    result = SqlRunner.run(sql, values)
+    member = result.map{|each|Member.new(each)}
+# binding.pry
+nil
 
   end
 

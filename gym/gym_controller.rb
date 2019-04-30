@@ -85,9 +85,17 @@ get '/show_session' do
   erb(:show_session)
 end
 
-get '/xtime_session' do
+get '/show_attendance/:id' do
+
+  @session = Session.find_session(params[:id])
+  @members = @session.members()
+  # @sessions = Session.show()
+  erb(:show_attendance)
+end
+
+get '/time_session' do
   @session = Session.sessions_by_time()
-  erb(:xtime_session)
+  erb(:time_session)
 end
 
 # edit
@@ -111,6 +119,8 @@ end
 
 
 
+
+
 # bookings***********************************************
 
 # new
@@ -131,8 +141,12 @@ end
 # show
 get '/show_booking' do
    @booking = Booking.show()
-erb(:show_booking)
+   erb(:show_booking)
 end
+
+
+
+
 
 # edit
 get '/edit_booking/:id/edit' do

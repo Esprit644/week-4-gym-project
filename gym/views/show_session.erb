@@ -2,7 +2,7 @@
 
 <p> </P>
 <h2> <a href="/new_session">Add new session</a> </h2>
-<h2> <a href="/xtime_session">View sessions still to start</a> </h2>
+<h2> <a href="/time_session">View sessions still to start</a> </h2>
 <p></P>
 <p> ------------------------------------</P>
   <% @session.each do |sess| %>
@@ -16,7 +16,7 @@
       <a href="/edit_session/<%= sess.id%>/edit">Update session</a></p>
       <p>
       <a href="/show_session/<%= sess.id%>/delete">Delete session</a></p>
-      <a href="/show_session/<%= sess.id%>/show">Show all booked into class</a></p>
+      <a href="/show_attendance/<%= sess.id%>">Show all booked into class</a></p>
 
 
     <p> ------------------------------------</P>

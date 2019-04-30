@@ -58,6 +58,21 @@ class Session
       # p "We have updated the #{session_name} file"
   end
 
+  def members()
+    sql = "SELECT * FROM members
+          INNER JOIN bookings
+          ON bookings.member_id = members.id
+          INNER JOIN sessions
+          ON bookings.session_id = sessions.id
+          WHERE bookings.session_id = $1;"
+    values = [@id]
+    results = SqlRunner.run(sql,values)
+    members = results.map{|member|Member.new(member)}
+    # binding.pry
+    return members
+
+  end
+
   def self.delete_all()
     sql = "DELETE FROM sessions"
     SqlRunner.run(sql)
@@ -67,9 +82,7 @@ class Session
     sql = "SELECT * FROM sessions;"
     result = SqlRunner.run(sql)
     list = result.map{|each|Session.new(each)}
-    # binding.pry
-
-    # p list
+    return list
   end
 
   def self.find_session(id)
@@ -83,6 +96,17 @@ class Session
 
   end
 
+  # def self.finds(id)
+  #   sql = "SELECT * FROM sessions WHERE id = $1;"
+  #   values = [id]
+  #   result = SqlRunner.run(sql,values)
+  #   result.map{|each|Session.new(each)}
+  #   sessions = Session.new(result)
+  #
+  #   return sessions
+  #
+  # end
+
   def self.map_items(data)
     return data.map { |session| Session.new(session) }
   end
@@ -94,5 +118,6 @@ class Session
     result = SqlRunner.run(sql)
     list = result.map{|each|Session.new(each)}
   end
+
 
 end
