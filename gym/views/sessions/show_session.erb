@@ -1,7 +1,7 @@
 <h1>Use this page to view and edit all gym sessions</h1>
 
 <p> </P>
-<h2> <a href="/sessions/new_session">Add new session</a> </h2>
+<h2> <a href="/session/new">Add new session</a> </h2>
 <h2> <a href="/sessions/time_session">View sessions still to start</a> </h2>
 <p></P>
 <p> ------------------------------------</P>
@@ -13,9 +13,9 @@
     <p> Session ID    : <%=sess.id %> </P>
     <p>  </P>
     <p>
-      <a href="/sessions/edit_session/<%= sess.id%>/edit">Update session</a></p>
+      <a href="/sessions/edit/<%= sess.id%>/edit">Update session</a></p>
       <p>
-      <a href="/sessions/show_session/<%= sess.id%>/delete">Delete session</a></p>
+      <a href="/sessions/delete/<%= sess.id%>">Delete session</a></p>
       <a href="/sessions/show_attendance/<%= sess.id%>">Show all booked into class</a></p>
 
 

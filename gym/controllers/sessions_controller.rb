@@ -5,21 +5,20 @@ require_relative('../models/session.rb')
 also_reload('./models/*')
 
 
-# SESSION*****************************************
 # new
-get '/sessions/new_session' do
+get '/session/new' do
   erb(:"/sessions/new_session")
 end
 
 # create
-post '/sessions/new_session' do
+post '/session/create' do
   @session = Session.new(params)
   @session.save()
-  redirect to '/sessions/show_session'
+  redirect to '/sessions/show'
 end
 
 # show
-get '/sessions/show_session' do
+get '/sessions/show' do
   @session = Session.show()
   erb(:"/sessions/show_session")
 end
@@ -37,19 +36,19 @@ get '/sessions/time_session' do
 end
 
 # edit
-get '/sessions/edit_session/:id/edit' do
+get '/sessions/edit/:id/edit' do
   @sessions = Session.find_session(params[:id])
 erb(:"/sessions/edit_session")
 end
 
 # update
-post '/sessions/edit_session/:id' do
+post '/sessions/update/:id' do
  Session.new(params).update
-  redirect to '/sessions/show_session'
+  redirect to '/sessions/show'
 end
 
 # destroy
-get '/sessions/show_session/:id/delete' do
+get '/sessions/delete/:id' do
   @sessions = Session.find_session(params[:id]).delete_session()
-redirect to '/sessions/show_session'
+redirect to '/sessions/show'
 end
