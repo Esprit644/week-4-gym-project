@@ -23,14 +23,14 @@ get '/sessions/show' do
   erb(:"/sessions/show_session")
 end
 
-get '/sessions/show_attendance/:id' do
+get '/attendance/show/:id' do
 
   @session = Session.find_session(params[:id])
   @members = @session.members()
   erb(:"/sessions/show_attendance")
 end
 
-get '/sessions/time_session' do
+get '/time/show' do
   @session = Session.sessions_by_time()
   erb(:"/sessions/time_session")
 end

@@ -1,7 +1,7 @@
 <h1> Please use this page to view and edit all member data</h1>
 
 <p> </P>
-<h2> <a href="/members/new_member">Add new member</a> </h2>
+<h2> <a href="/members/new">Add new member</a> </h2>
 <p></P>
 <p> ------------------------------------</P>
   <% @member.each do |mem| %>
@@ -11,9 +11,9 @@
     <p> Membership ID : <%=mem.id %> </P>
     <p>  </P>
     <p>
-      <a href="/members/edit_member/<%= mem.id%>/edit">Update Member</a></p>
+      <a href="/members/edit/<%= mem.id%>">Update Member</a></p>
       <p>
-      <a href="/members/show_member/<%= mem.id%>/delete">Delete Member</a></p>
+      <a href="/members/delete/<%= mem.id%>">Delete Member</a></p>
 
 
     <p> ------------------------------------</P>
