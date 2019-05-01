@@ -2,42 +2,38 @@
 
 <form method = "post" action= "/edit_session/<%= @sessions.id %>" >
 
-
-
-    <label for="session-name-field">Session name:</label>
-   <input
-   type="text"
-   name="session_name"
-   id="session-name-field"
-   value="<%= @sessions.session_name %>"
-   />
+  <label for="session-name-field">Session name:</label>
+     <input
+       type="text"
+       name="session_name"
+       id="session-name-field"
+       value="<%= @sessions.session_name %>"
+     />
 
    <label for="capacity-field"> Capacity:</label>
-   <input
-   type="number"
-   name ="capacity"
-   id = "capacity-field"
-   value="<%= @sessions.capacity %>"
+     <input
+       type="number"
+       name ="capacity"
+       id = "capacity-field"
+       value="<%= @sessions.capacity %>"
    />
-
 
    <label for="cost-field">Cost:</label>
-   <input
-   type ="number"
-   name ="cost"
-   id ="cost-field"
-   value ="<%= @sessions.cost %>"
-   />
+     <input
+       type ="number"
+       name ="cost"
+       id ="cost-field"
+       value ="<%= @sessions.cost %>"
+     />
 
    <label for="session-time-field">Time:</label>
-   <input
-   type = "time"
-   name ="session_time"
-   id ="session-time-field"
-   value = "<%= @sessions.session_time %>"
-   />
+     <input
+       type = "time"
+       name ="session_time"
+       id ="session-time-field"
+       value = "<%= @sessions.session_time %>"
+     />
 
    <input type = 'submit' value = 'Update session'/>
-
 
   </form>
