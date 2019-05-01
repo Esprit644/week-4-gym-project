@@ -1,20 +1,21 @@
-<form method="post" action="/bookings/edit_booking"/<%= @booking.id %>">
+<form method="post" action="/bookings/<%= @booking.id %>">
 
-<p>
-  <label for="session_select"> Select session:</label>
+  <p>
+    <label for="session_select"> Select session:</label>
+    <select name="session_id" id="session_select">
 
-  <select name="session_id" id="session_select">
-
-    <P><option value= <%= @booking.session.id %> > <%= @booking.session.session_name %> </option></p>
+      <P>
+        <option value= <%= @booking.session.id %> > <%= @booking.session.session_name %> </option>
+      </p>
 
       <% @sessions.each do |session| %>
         <option value= <%=session.id%> ><%=session.session_name%></option>
       <%end%>
-  </select>
-</P>
+    </select>
+  </P>
 
-<p>
-  <label for="member_select"> Select member:</label>
+  <p>
+    <label for="member_select"> Select member:</label>
     <select name= "member_id" id="member_select">
       <option value = <%= @booking.member.id %> > <%= @booking.member.first_name %> <%= @booking.member.last_name%> </option>
 
@@ -22,7 +23,7 @@
           <option value= <%= member.id %>> <%= member.first_name %> <%= member.last_name %> </option>
         <% end%>
     </select>
-</p>
+  </p>
 <input  type='submit' value='Update booking'></input>
 
 </form>

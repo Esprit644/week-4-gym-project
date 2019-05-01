@@ -1,44 +1,36 @@
 <h1> Add a member</h1>
 
-  <form   action="/members/create"  method="post" >
+<form   action="/members"  method="post" >
 
-<p>
-<label for="first-name-field">First name:</label>
- <input
- type="text"
- name="first_name"
- id="first-name-field"
- />
- </p>
+    <label for="first-name-field">First name:</label>
+     <input
+     type="text"
+     name="first_name"
+     id="first-name-field"
+     />
 
-<p>
- <label for ="last-name-field"> Last name:</label>
- <input
- type="text"
- name="last_name"
- id="last-name-field"
- />
- </P>
+     <label for ="last-name-field"> Last name:</label>
+     <input
+     type="text"
+     name="last_name"
+     id="last-name-field"
+     />
 
-<p>
- <label for= "phone-number-field"> Phone number:</label>
-  <input
-  type="number"
-  name="phone_number"
-  id="phone-number-field"
-  />
-</p>
-
-<p>
-    <label for="email-field"> Email:</label>
+    <label for= "phone-number-field"> Phone number:</label>
     <input
-    type = "text"
-    name="email"
-    id="email-field"
+    type="number"
+    name="phone_number"
+    id="phone-number-field"
     />
-</p>
 
-<input  type='submit' value='Create new member'></input>
+      <label for="email-field"> Email:</label>
+      <input
+      type = "text"
+      name="email"
+      id="email-field"
+      />
 
+
+  <input  type='submit' value='Create new member'></input>
 
 </form>

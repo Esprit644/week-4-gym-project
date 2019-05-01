@@ -27,7 +27,6 @@ class Booking
     @id = id.to_i
   end
 
-
   def update()
     sql = "UPDATE bookings SET(
     session_id,
@@ -41,7 +40,6 @@ class Booking
       values = [@session_id, @member_id, @id]
       SqlRunner.run(sql, values)
   end
-
 
   def delete_booking()
     sql = "DELETE FROM bookings WHERE id = $1;"
@@ -65,21 +63,12 @@ class Booking
     return session
   end
 
-
-  # def self.delete_all()
-  #   sql = "DELETE FROM bookings"
-  #   SqlRunner.run(sql)
-  # end
-
   def self.show()
     sql = "SELECT * FROM bookings"
     results = SqlRunner.run(sql)
     list = results.map{|each|Booking.new(each)}
     return list
-    # p list
   end
-
-
 
   def self.find(id)
     sql = "SELECT * FROM bookings where id = $1"
@@ -87,10 +76,6 @@ class Booking
     result = SqlRunner.run(sql, values)
     list = result.map{|each|Booking.new(each)}
     return list.first
-    # p list
-
   end
-
-
 
 end

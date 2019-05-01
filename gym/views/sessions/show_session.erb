@@ -1,27 +1,32 @@
 <h1>Use this page to view and edit all gym sessions</h1>
 
-<p> </P>
+<div class = "flex-container margin_top_5">
+  <div class = "members_table ">
+    <table class="table">
+      <tr class="table_row">
+        <th class="table_data_header">Name</th>
+        <th class="table_data_header">Capacity</th>
+        <th class="table_data_header">Cost</th>
+        <th class="table_data_header">Time</th>
+        <th class="table_data_header">Session ID</th>
+      </tr>
+
+      <% @session.each do |sess| %>
+      <tr class="table_row">
+        <td class="table_data"><%=sess.session_name %> </td>
+        <td class="table_data"><%=sess.capacity %> </td>
+        <td class="table_data"><%=sess.cost %> </td>
+        <td class="table_data"><%=sess.session_time %> </td>
+        <td class="table_data"><%=sess.id %> </td>
+
+        <td class="table_data"><a href="/sessions/<%= sess.id%>/edit">Update session</a></td>
+        <td class="table_data"><a href="/sessions/<%= sess.id%>/delete">Delete session</a></td>
+        <td class="table_data"><a href="/attendance/<%= sess.id%>">Show all booked into class</a></td>
+      <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
+
 <h2> <a href="/session/new">Add new session</a> </h2>
 <h2> <a href="/time/show">View sessions still to start</a> </h2>
-<p></P>
-<p> ------------------------------------</P>
-  <% @session.each do |sess| %>
-    <p> Name          : <%=sess.session_name %> </p>
-    <p> Capacity      : <%=sess.capacity %> </p>
-    <p> Cost          : <%=sess.cost %> </p>
-    <p> Time          : <%=sess.session_time %> </P
-    <p> Session ID    : <%=sess.id %> </P>
-    <p>  </P>
-    <p>
-      <a href="/sessions/edit/<%= sess.id%>/edit">Update session</a></p>
-      <p>
-      <a href="/sessions/delete/<%= sess.id%>">Delete session</a></p>
-      <a href="/attendance/show/<%= sess.id%>">Show all booked into class</a></p>
-
-
-    <p> ------------------------------------</P>
-    <p> </P>
-
-
-    <p></p>
-  <% end %>

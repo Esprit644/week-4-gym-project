@@ -11,7 +11,7 @@ get '/session/new' do
 end
 
 # create
-post '/session/create' do
+post '/session' do
   @session = Session.new(params)
   @session.save()
   redirect to '/sessions/show'
@@ -23,32 +23,33 @@ get '/sessions/show' do
   erb(:"/sessions/show_session")
 end
 
-get '/attendance/show/:id' do
+get '/attendance/:id' do
 
   @session = Session.find_session(params[:id])
   @members = @session.members()
   erb(:"/sessions/show_attendance")
 end
 
+# show - not quite restful as should be /time/:id but :id does not apply here.
 get '/time/show' do
   @session = Session.sessions_by_time()
   erb(:"/sessions/time_session")
 end
 
 # edit
-get '/sessions/edit/:id/edit' do
+get '/sessions/:id/edit' do
   @sessions = Session.find_session(params[:id])
 erb(:"/sessions/edit_session")
 end
 
 # update
-post '/sessions/update/:id' do
+post '/sessions/:id' do
  Session.new(params).update
   redirect to '/sessions/show'
 end
 
 # destroy
-get '/sessions/delete/:id' do
+get '/sessions/:id/delete' do
   @sessions = Session.find_session(params[:id]).delete_session()
 redirect to '/sessions/show'
 end

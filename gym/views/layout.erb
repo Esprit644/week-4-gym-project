@@ -3,16 +3,22 @@
 <html>
 <head>
   <title>The Gym App</title>
-    <link rel="stylesheet" href="/style.css">
+
+  <div class = "header margin_top_5">
+    <h1> The Gym Palace </h1>
+  </div>
+
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/structure.css">
 </head>
 
 <body>
-
-    <li class="admin-options"><a href ='/index'>Home</a></li>
+  <nav>
+    <li class="admin-options"><a href ='/gym'>Home</a></li>
     <li class="admin-options"><a href ='/members/show'>Members</a></li>
     <li class="admin-options"><a href ='/sessions/show'>Sessions</a></li>
-    <li class="admin-options"><a href ='/bookings/show_booking'>Bookings</a></li>
-
+    <li class="admin-options"><a href ='/bookings/show'>Bookings</a></li>
+  </nav>
 </body>
 
   <%= yield %>

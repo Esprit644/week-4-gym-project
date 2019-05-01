@@ -35,7 +35,6 @@ class Session
     sql = "DELETE FROM sessions WHERE id = $1 RETURNING *;"
     values = [@id]
     SqlRunner.run(sql, values)
-    # p session_name
   end
 
   def update()
@@ -55,7 +54,6 @@ class Session
         id = $5;"
       values = [@session_name, @capacity, @cost, @session_time, @id]
       result = SqlRunner.run(sql, values)
-      # p "We have updated the #{session_name} file"
   end
 
   def members()
@@ -68,7 +66,6 @@ class Session
     values = [@id]
     results = SqlRunner.run(sql,values)
     members = results.map{|member|Member.new(member)}
-    # binding.pry
     return members
 
   end
@@ -89,35 +86,18 @@ class Session
     sql = "SELECT * FROM sessions WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql,values).first
-    # result.map{|each|Session.new(each)}
     sessions = Session.new(result)
-
     return sessions
-
   end
-
-  # def self.finds(id)
-  #   sql = "SELECT * FROM sessions WHERE id = $1;"
-  #   values = [id]
-  #   result = SqlRunner.run(sql,values)
-  #   result.map{|each|Session.new(each)}
-  #   sessions = Session.new(result)
-  #
-  #   return sessions
-  #
-  # end
 
   def self.map_items(data)
     return data.map { |session| Session.new(session) }
   end
-
-
 
   def self.sessions_by_time()
     sql = "SELECT * FROM sessions WHERE sessions.session_time >= CURRENT_TIME;"
     result = SqlRunner.run(sql)
     list = result.map{|each|Session.new(each)}
   end
-
 
 end

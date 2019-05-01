@@ -32,7 +32,6 @@ class Member
     @id =id.to_i
   end
 
-
   def update()
     sql = "UPDATE members
     SET(
@@ -50,7 +49,6 @@ class Member
         id = $5;"
       values = [@first_name, @last_name, @phone_number, @email, @id]
       result = SqlRunner.run(sql, values)
-      # p "We have updated the #{session_name} file"
   end
 
   def delete()
@@ -59,8 +57,6 @@ class Member
     WHERE id = $1;"
     values = [@id]
     SqlRunner.run(sql, values)
-
-     # p first_name + " " + last_name
   end
 
 
@@ -70,8 +66,6 @@ class Member
     result = SqlRunner.run(sql)
     list = result.map{|each|Member.new(each)}
     return list
-    # binding.pry
-     # p list
   end
 
   def self.delete_all()
@@ -85,11 +79,7 @@ class Member
           WHERE id = $1;"
     values = [id]
     result = SqlRunner.run(sql, values).first
-    # member = result.map{|each|Member.new(each)}
     members = Member.new(result)
-    # p member.id
-    # return members
-
   end
 
   def self.finding(id)
@@ -99,12 +89,7 @@ class Member
     values = [id]
     result = SqlRunner.run(sql, values)
     member = result.map{|each|Member.new(each)}
-# binding.pry
-nil
-
   end
-
-
 
   def self.map_items(data)
     return data.map { |member| Member.new(member) }

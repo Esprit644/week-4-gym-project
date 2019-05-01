@@ -1,0 +1,113 @@
+.members_table{
+  display: flex;
+  justify-content: center;
+}
+
+.header{
+
+  display: flex;
+  padding: 20;
+  margin: 20;
+  color: white;
+  text-shadow: 20px 20px 1px black;
+  font-size: 90px;
+  float: left;
+  width: 1200px;
+  height: 200px;
+  padding-bottom:10px;
+  margin-bottom: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  align-items: center;
+  border: 2px solid black;
+  justify-content: center;
+  background-image: url("sport-and-fitness-gym-equipment.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+table{
+width: 1000px
+}
+
+*{
+  margin: 0;
+}
+
+td{
+  text-align: center;
+  font-size: 25px;
+  border: 2px solid grey;
+}
+
+h1 {
+text-align: center;
+font-size: 40px;
+}
+
+h2{
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+
+}
+
+a {
+/* text-decoration: none; */
+/* color: blue; */
+}
+
+
+li{
+/* display: inline-table; */
+list-style-type: none;
+/* text-decoration: none; */
+color: black;
+padding: 10px;
+margin: 10px;
+border: 2px black solid;
+}
+
+
+nav {
+display: inline-flex;
+font-size: 25px;
+text-align: justify;
+margin-bottom: 30px;
+}
+
+.margin_top_5{
+  margin-top:5%;
+}
+
+.flex-container {
+  display: flex;
+  /* padding: 20; */
+  margin: 20;
+  list-style: none;
+  float:left;
+  width: 1100px;
+  height: auto;
+  padding-bottom:10px;
+  padding-right: 20px;
+  margin-bottom: 25px;
+  margin-left: 50px;
+  margin-right: 50px;
+  align-items: center;
+  border: 2px solid black;
+  justify-content: center;
+  font-size: 30px;
+
+
+  -ms-box-orient: horizontal;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-flow: row wrap;
+  flex-flow: row wrap;
+}

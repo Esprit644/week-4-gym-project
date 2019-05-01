@@ -1,25 +1,30 @@
-<h1>View bookings here:</h1>
+<h1>View bookings here</h1>
 
-<p> </P>
-<h2> <a href="/bookings/new_booking">Add new booking:</a> </h2>
-<p></P>
-<p> ------------------------------------</P>
-    <% @booking.each do |each| %>
-    <p> Booking ref   : <%= each.id %> </p>
-    <p> Member        : <%= each.member.first_name %> <%= each.member.last_name %></p>
-    <p> Member ref   : <%= each.member.id %> </p>
-    <p> Session ref   : <%= each.session.id %> </p>
-    <p> Session name   : <%= each.session.session_name %> </p>
+<div class = "flex-container margin_top_5">
 
+  <div class = "members_table ">
+    <table class="table">
+      <tr class="table_row">
+        <th class="table_data_header">Booking ID:</th>
+        <th class="table_data_header">Member:</th>
+        <th class="table_data_header">Member ID:</th>
+        <th class="table_data_header">Session ID:</th>
+        <th class="table_data_header">Session name:</th>
+      </tr>
 
-    <p>
-      <a href="/bookings/edit_booking/<%= each.id%>/edit">Update booking</a></p>
-      <p>
-      <a href="/bookings/show_booking/<%= each.id%>/delete">Delete booking</a></p>
+        <% @booking.each do |each| %>
+        <tr class="table_row">
+        <td class="table_data"><%= each.id %> </td>
+        <td class="table_data"><%= each.member.first_name %> <%= each.member.last_name %></td>
+        <td class="table_data"><%= each.member.id %> </td>
+        <td class="table_data"><%= each.session.id %> </td>
+        <td class="table_data"><%= each.session.session_name %> </td>
 
-    <%end%>
-    <p> ------------------------------------</P>
-    <p> </P>
-
-
-    <p></p>
+        <td class=" table_data "><a href="/bookings/<%= each.id%>/edit">Update booking</a></td>
+        <td class=" table_data "><a href="/bookings/<%= each.id%>/delete">Delete booking</a></td>
+        <%end%>
+      </tr>
+    </table>
+  </div>
+</div>
+<h2> <a href="/bookings/new">Add new booking</a> </h2>

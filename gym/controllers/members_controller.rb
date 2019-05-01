@@ -6,7 +6,7 @@ require_relative('../models/member.rb')
 also_reload('./models/*')
 
 
-# show
+#show
 get '/members/show' do
   @member = Member.find_all()
   erb(:"/members/show_member")
@@ -18,27 +18,27 @@ get '/members/new' do
 end
 
 # create
-post '/members/create' do
+post '/members' do
   @member = Member.new(params)
   @member.save()
   redirect to '/members/show'
 end
 
 # edit
-get '/members/edit/:id' do
+get '/members/:id/edit' do
   @member = Member.find(params[:id])
   erb(:"/members/edit_member")
 end
 
 # update
-post '/members/update/:id' do
+post '/members/:id' do
   Member.new(params).update
   redirect to '/members/show'
 end
 
 # destroy
 
-get '/members/delete/:id' do
+get '/members/:id/delete' do
   @member = Member.find(params[:id]).delete()
   redirect to '/members/show'
 

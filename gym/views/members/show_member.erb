@@ -1,24 +1,31 @@
+
 <h1> Please use this page to view and edit all member data</h1>
 
-<p> </P>
-<h2> <a href="/members/new">Add new member</a> </h2>
-<p></P>
-<p> ------------------------------------</P>
-  <% @member.each do |mem| %>
-    <p> Name          : <%=mem.first_name + " " + mem.last_name %> </p>
-    <p> Contact number: <%=mem.phone_number %> </p>
-    <p> Email         : <%=mem.email %> </p>
-    <p> Membership ID : <%=mem.id %> </P>
-    <p>  </P>
-    <p>
-      <a href="/members/edit/<%= mem.id%>">Update Member</a></p>
-      <p>
-      <a href="/members/delete/<%= mem.id%>">Delete Member</a></p>
+<div class = "flex-container margin_top_5">
 
+  <div class = "members_table ">
+    <table class="table">
+      <tr class="table_row">
+        <th class="table_data_header">Name</th>
+        <th class="table_data_header">Contact number</th>
+        <th class="table_data_header">Email</th>
+        <th class="table_data_header">Membership ID</th>
+      </tr>
 
-    <p> ------------------------------------</P>
-    <p> </P>
+      <% @member.each do |mem| %>
+      <tr class="table_row">
+        <td class="table_data"><%=mem.first_name + " " + mem.last_name %> </td>
+        <td class="table_data"><%=mem.phone_number %> </td>
+        <td class="table_data"><%=mem.email %> </td>
+        <td class="table_data"> <%=mem.id %> </td>
 
+        <td class=" table_data "><a href="/members/<%= mem.id%>/edit">Update Member</a></td>
+        <td class=" table_data "><a href="/members/<%= mem.id%>/delete">Delete Member</a></td>
+      <% end %>
 
-    <p></p>
-  <% end %>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<h2><a href="/members/new">Add new member</a></h2>
