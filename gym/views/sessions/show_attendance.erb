@@ -1,7 +1,7 @@
 <h1>The following people are booked into <%= @session.session_name %>, session ref <%= @session.id %>.</h1>
 
 
-  <form method="post" action="/show_attendance/:id">
+  <form method="post" action="/sessions/sess/show_attendance/:id">
         <% @members.each do |member| %>
           <p> Member          : <%= member.first_name %> <%= member.last_name %></P>
           <p> Contact details : <%= member.phone_number %></P>

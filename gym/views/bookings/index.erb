@@ -1,7 +1,7 @@
 <h1>View bookings here:</h1>
 
 <p> </P>
-<h2> <a href="/show_booking">Show booking</a> </h2>
+<h2> <a href="/bookings/show_booking">Show booking</a> </h2>
 <p></P>
 <p> ------------------------------------</P>
     <% @booking.each do |each| %>
@@ -16,9 +16,9 @@
 
     <p>  </P>
     <p>
-      <a href="/show_booking/<%= @booking.id%>/edit">Update booking</a></p>
+      <a href="/bookings/show_booking/<%= @booking.id%>/edit">Update booking</a></p>
       <p>
-      <a href="/show_booking/<%= @booking.id%>/delete">Delete booking</a></p>
+      <a href="/bookings/show_booking/<%= @booking.id%>/delete">Delete booking</a></p>
 
 
     <p> ------------------------------------</P>
